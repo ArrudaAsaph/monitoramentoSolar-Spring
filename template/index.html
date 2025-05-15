@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro de Cliente</title>
+</head>
+<body>
+  <h1>Cadastrar Cliente</h1>
+  <form id="clienteForm">
+    <label for="nome">Nome:</label><br />
+    <input type="text" id="nome" name="nome" required /><br /><br />
+
+    <label for="endereco">Endereço:</label><br />
+    <input type="text" id="endereco" name="endereco" required /><br /><br />
+
+    <label for="telefone">Telefone:</label><br />
+    <input type="text" id="telefone" name="telefone" required /><br /><br />
+
+    <label for="dt_instalacao">Data da Instalação:</label><br />
+    <input type="datetime-local" id="dt_instalacao" name="dt_instalacao" required /><br /><br />
+
+    <button type="submit">Cadastrar</button>
+  </form>
+
+  <p id="mensagem"></p>
+
+  <script>
+    const form = document.getElementById('clienteForm');
+    const mensagem = document.getElementById('mensagem');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const cliente = {
+        nome: form.nome.value,
+        endereco: form.endereco.value,
+        telefone: form.telefone.value,
+        dt_instalacao: form.dt_instalacao.value
+      };
+
+      fetch('http://localhost:8080/cliente', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(cliente)
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Erro ao cadastrar cliente');
+        }
+        return response.json();
+      })
+      .then(data => {
+        mensagem.innerText = "Cliente cadastrado com sucesso!";
+        form.reset();
+      })
+      .catch(error => {
+        console.error(error);
+        mensagem.innerText = "Erro ao cadastrar cliente.";
+      });
+    });
+  </script>
+</body>
+</html>
