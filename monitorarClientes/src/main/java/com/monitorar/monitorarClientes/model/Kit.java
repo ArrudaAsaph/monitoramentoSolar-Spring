@@ -14,62 +14,67 @@ public class Kit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int potenciaModulos;
-    private	int quantidadeModulos;
-    private String marcaModulo;
+    private String fornecedor;
 
-    private float potenciaInversor;
-    private int quantidadeInversor;
+    private float potenciaSistema;
+
     private String marcaInversor;
 
-    private String descricao;
+    private float potenciaInversor;
 
-    
+    private int quantidadeInversor;
+
+    private String marcaModulo;
+
+    private float potenciaModulo;
+
+    private int quantidadeModulo;
 
     public Kit() {
     }
 
-    public Kit(Long id, int potenciaModulos, int quantidadeModulos, String marcaModulo, float potenciaInversor, int quantidadeInversor,
-            String marcaInversor, String descricao) {
+    public Kit(Long id, String fornecedor, float potenciaSistema, String marcaInversor, float potenciaInversor,
+            int quantidadeInversor, String marcaModulo, float potenciaModulo, int quantidadeModulo) {
         this.id = id;
-        this.potenciaModulos = potenciaModulos;
-        this.quantidadeModulos = quantidadeModulos;
-        this.marcaModulo = marcaModulo;
+        this.fornecedor = fornecedor;
+        this.potenciaSistema = potenciaSistema;
+        this.marcaInversor = marcaInversor;
         this.potenciaInversor = potenciaInversor;
         this.quantidadeInversor = quantidadeInversor;
-        this.marcaInversor = marcaInversor;
-        this.descricao = descricao;
-    }
-
-    public int getPotenciaModulos() {
-        return potenciaModulos;
-    }
-
-    public void setPotenciaModulos(int potenciaModulos) {
-        this.potenciaModulos = potenciaModulos;
-    }
-
-    public int getQuantidadeModulos() {
-        return quantidadeModulos;
-    }
-
-    public void setQuantidadeModulos(int quantidadeModulos) {
-        this.quantidadeModulos = quantidadeModulos;
-    }
-
-    public String getMarcaModulo() {
-        return marcaModulo;
-    }
-
-    public void setMarcaModulo(String marcaModulo) {
         this.marcaModulo = marcaModulo;
+        this.potenciaModulo = potenciaModulo;
+        this.quantidadeModulo = quantidadeModulo;
     }
 
-    public float getenciaPotInversor() {
+    public String getFornecedor() {
+        return fornecedor;
+    }
+
+    public void setFornecedor(String fornecedor) {
+        this.fornecedor = fornecedor;
+    }
+
+    public float getPotenciaSistema() {
+        return potenciaSistema;
+    }
+
+    public void setPotenciaSistema(float potenciaSistema) {
+        this.potenciaSistema = potenciaSistema;
+    }
+
+    public String getMarcaInversor() {
+        return marcaInversor;
+    }
+
+    public void setMarcaInversor(String marcaInversor) {
+        this.marcaInversor = marcaInversor;
+    }
+
+    public float getPotenciaInversor() {
         return potenciaInversor;
     }
 
-    public void setenciaPotInversor(float potenciaInversor) {
+    public void setPotenciaInversor(float potenciaInversor) {
         this.potenciaInversor = potenciaInversor;
     }
 
@@ -81,21 +86,30 @@ public class Kit {
         this.quantidadeInversor = quantidadeInversor;
     }
 
-    public String getMarcaInversor() {
-        return marcaInversor;
+    public String getMarcaModulo() {
+        return marcaModulo;
     }
 
-    public void setMarcaInversor(String marcaInversor) {
-        this.marcaInversor = marcaInversor;
+    public void setMarcaModulo(String marcaModulo) {
+        this.marcaModulo = marcaModulo;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public float getPotenciaModulo() {
+        return potenciaModulo;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setPotenciaModulo(float potenciaModulo) {
+        this.potenciaModulo = potenciaModulo;
+    }
+
+    public int getQuantidadeModulo() {
+        return quantidadeModulo;
+    }
+
+    public void setQuantidadeModulo(int quantidadeModulo) {
+        this.quantidadeModulo = quantidadeModulo;
     }
 
     
+
 }
